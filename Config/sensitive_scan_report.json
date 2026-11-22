@@ -1,0 +1,82 @@
+{
+  "generated_utc": "2026-11-21T13:00:15Z",
+  "model_type": "TABULAR_ML",
+  "domain_config": {
+    "path": "/content/domain_config.yaml",
+    "sha256": "b72d4e5cd8602375b85a1431a2473a0be5adc4d3b3378ca3f28defabbbcd7405",
+    "domains": [
+      "healthcare",
+      "finance",
+      "real_estate",
+      "hr",
+      "health_insurance"
+    ],
+    "warnings": []
+  },
+  "drop_sensitive_features": {
+    "value": true,
+    "source": "domain_config (/content/domain_config.yaml)"
+  },
+  "industry": {
+    "mode": "explicit",
+    "detected": {
+      "industry": "health_insurance",
+      "confident": true,
+      "applied": "health_insurance",
+      "source": "user selection (fixed-160)"
+    },
+    "active_domains": [
+      "healthcare",
+      "finance",
+      "real_estate",
+      "hr",
+      "health_insurance"
+    ],
+    "auto_drop_sensitive": true
+  },
+  "dropped_detail": [
+    {
+      "column": "age",
+      "categories": [
+        "protected_class"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "age"
+      ],
+      "sources": [
+        "regex"
+      ]
+    }
+  ],
+  "retained_by_keep_sensitive_columns": [],
+  "domain_config_routing": {
+    "model_type": "TABULAR_ML",
+    "mode": "full",
+    "applied": true,
+    "note": null
+  },
+  "dropped_before_training": {
+    "age": {
+      "categories": [
+        "protected_class"
+      ],
+      "domains": [
+        "hr"
+      ],
+      "matches": [
+        "age"
+      ],
+      "sources": [
+        "regex"
+      ]
+    }
+  },
+  "sensitive_columns_in_model": {},
+  "status": {},
+  "business_justified": {},
+  "fairness_reviews": {},
+  "fairness_disparity": []
+}

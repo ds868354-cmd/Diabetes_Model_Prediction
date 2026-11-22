@@ -1,0 +1,31 @@
+{
+  "model": {
+    "type": "TABULAR_ML",
+    "task": "classification",
+    "target_col": "class"
+  },
+  "industry": {
+    "applied": "health_insurance",
+    "confidence": null,
+    "detected": true,
+    "evidence": [],
+    "active_domains": [
+      "healthcare",
+      "finance",
+      "real_estate",
+      "hr",
+      "health_insurance"
+    ]
+  },
+  "sensitive_columns_found": {
+    "age": [
+      "protected_class"
+    ]
+  },
+  "sensitive_columns_dropped": [
+    "age"
+  ],
+  "target_bounds": null,
+  "language": null,
+  "applied_domain_config_file": "/content/domain_config.yaml"
+}

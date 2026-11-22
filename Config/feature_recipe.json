@@ -1,0 +1,322 @@
+{
+  "target_col": "class",
+  "task": "classification",
+  "model_family": "TABULAR_ML",
+  "numeric_cols": [
+    "preg",
+    "plas",
+    "pres",
+    "skin",
+    "insu",
+    "mass",
+    "pedi",
+    "insu__log1p",
+    "pedi__log1p"
+  ],
+  "categorical_cols": [],
+  "feature_names": [
+    "preg",
+    "plas",
+    "pres",
+    "skin",
+    "insu",
+    "mass",
+    "pedi",
+    "insu__log1p",
+    "pedi__log1p"
+  ],
+  "class_names": [
+    "tested_negative",
+    "tested_positive"
+  ],
+  "impute_medians": [
+    3.0,
+    116.0,
+    72.0,
+    23.0,
+    29.0,
+    32.400001525878906,
+    0.3779999911785126,
+    3.4011973816621555,
+    0.32063316618980686
+  ],
+  "outlier_bounds": [
+    {
+      "lower": 0.0,
+      "upper": 21.0
+    },
+    {
+      "lower": 0.0,
+      "upper": 265.0
+    },
+    {
+      "lower": 0.0,
+      "upper": 134.0
+    },
+    {
+      "lower": 0.0,
+      "upper": 128.0
+    },
+    {
+      "lower": 0.0,
+      "upper": 661.830000000011
+    },
+    {
+      "lower": 0.0,
+      "upper": 63.499996185302734
+    },
+    {
+      "lower": 0.08399999886751175,
+      "upper": 2.3085820512771633
+    },
+    {
+      "lower": 0.0,
+      "upper": 19.423443073828345
+    },
+    {
+      "lower": 0.08065790197272361,
+      "upper": 1.2920016927735807
+    }
+  ],
+  "scale_recipe": {
+    "method": "standard",
+    "mean_": [
+      3.8917835671342687,
+      120.70941883767534,
+      69.38476953907815,
+      20.328657314629258,
+      75.95757515030061,
+      32.14488976274081,
+      0.4769350355670065,
+      2.455449910896801,
+      0.3680680695201689
+    ],
+    "scale_": [
+      3.3655559062905507,
+      31.61494489865218,
+      19.063974368805226,
+      15.624097581982282,
+      106.53484466496155,
+      7.927599984880775,
+      0.3383617300474282,
+      2.4400934277116217,
+      0.201397892753917
+    ]
+  },
+  "encode_recipe": {
+    "categorical_cols": [],
+    "encoders": {}
+  },
+  "custom_formulas": null,
+  "smote_applied": false,
+  "applied_pipeline_steps": [
+    {
+      "step": "FeatureExpansion",
+      "params": {
+        "derived_columns": [
+          "insu__log1p",
+          "pedi__log1p"
+        ],
+        "onehot_columns": []
+      }
+    },
+    {
+      "step": "Imputation",
+      "params": {
+        "method": "median",
+        "columns": [
+          "preg",
+          "plas",
+          "pres",
+          "skin",
+          "insu",
+          "mass",
+          "pedi",
+          "insu__log1p",
+          "pedi__log1p"
+        ],
+        "medians": [
+          3.0,
+          116.0,
+          72.0,
+          23.0,
+          29.0,
+          32.400001525878906,
+          0.3779999911785126,
+          3.4011973816621555,
+          0.32063316618980686
+        ]
+      }
+    },
+    {
+      "step": "WinsorizeCaps",
+      "params": {
+        "factor": 3.0,
+        "bounds": [
+          {
+            "lower": 0.0,
+            "upper": 21.0
+          },
+          {
+            "lower": 0.0,
+            "upper": 265.0
+          },
+          {
+            "lower": 0.0,
+            "upper": 134.0
+          },
+          {
+            "lower": 0.0,
+            "upper": 128.0
+          },
+          {
+            "lower": 0.0,
+            "upper": 661.830000000011
+          },
+          {
+            "lower": 0.0,
+            "upper": 63.499996185302734
+          },
+          {
+            "lower": 0.08399999886751175,
+            "upper": 2.3085820512771633
+          },
+          {
+            "lower": 0.0,
+            "upper": 19.423443073828345
+          },
+          {
+            "lower": 0.08065790197272361,
+            "upper": 1.2920016927735807
+          }
+        ]
+      }
+    },
+    {
+      "step": "Scaling",
+      "params": {
+        "method": "standard"
+      }
+    }
+  ],
+  "derived_features": [
+    {
+      "type": "log1p",
+      "source": "insu",
+      "out": "insu__log1p"
+    },
+    {
+      "type": "log1p",
+      "source": "pedi",
+      "out": "pedi__log1p"
+    }
+  ],
+  "feature_expansion_report": {
+    "numeric": [
+      {
+        "col": "preg",
+        "variance": 11.326967,
+        "skew": 0.856011,
+        "min": 0.0,
+        "n_unique": 16,
+        "abs_corr": 0.20611,
+        "log1p_candidate": false,
+        "high_impact": false
+      },
+      {
+        "col": "plas",
+        "variance": 999.504741,
+        "skew": 0.211348,
+        "min": 0.0,
+        "n_unique": 126,
+        "abs_corr": 0.470596,
+        "log1p_candidate": false,
+        "high_impact": true
+      },
+      {
+        "col": "pres",
+        "variance": 363.435119,
+        "skew": -1.803223,
+        "min": 0.0,
+        "n_unique": 45,
+        "abs_corr": 0.152677,
+        "log1p_candidate": false,
+        "high_impact": false
+      },
+      {
+        "col": "skin",
+        "variance": 244.112425,
+        "skew": -0.058338,
+        "min": 0.0,
+        "n_unique": 47,
+        "abs_corr": 0.080559,
+        "log1p_candidate": false,
+        "high_impact": false
+      },
+      {
+        "col": "insu",
+        "variance": 11556.127341,
+        "skew": 2.154701,
+        "min": 0.0,
+        "n_unique": 143,
+        "abs_corr": 0.096985,
+        "log1p_candidate": true,
+        "high_impact": true
+      },
+      {
+        "col": "mass",
+        "variance": 63.32518,
+        "skew": -0.500136,
+        "min": 0.0,
+        "n_unique": 215,
+        "abs_corr": 0.313555,
+        "log1p_candidate": false,
+        "high_impact": true
+      },
+      {
+        "col": "pedi",
+        "variance": 0.114639,
+        "skew": 1.920894,
+        "min": 0.084,
+        "n_unique": 375,
+        "abs_corr": 0.139761,
+        "log1p_candidate": true,
+        "high_impact": true
+      }
+    ],
+    "log1p_columns": [
+      "insu",
+      "pedi"
+    ],
+    "high_impact_numeric": [
+      "plas",
+      "mass",
+      "pedi",
+      "insu"
+    ],
+    "ordinal_columns": [],
+    "target_encoded_columns": [],
+    "frequency_encoded_columns": [],
+    "onehot_columns": [],
+    "skipped_columns": []
+  },
+  "robust_objective": {
+    "enabled": true,
+    "task": "classification",
+    "imbalance_ratio": 1.8678,
+    "objective": "cross_entropy_class_weight_balanced"
+  },
+  "ingestion_mode_context": "json_array",
+  "log_transform_target": false,
+  "log_target_pad_frac": 0.0,
+  "weighted_least_squares": {
+    "applied": false,
+    "reason": "not a regression task or weighted_least_squares=False"
+  },
+  "decision_threshold": {
+    "threshold": 0.34,
+    "positive_index": 1,
+    "positive_class": 1,
+    "source": "tabular_ml_settings.decision_threshold"
+  }
+}

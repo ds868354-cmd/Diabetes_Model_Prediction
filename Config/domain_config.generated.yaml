@@ -1,0 +1,25 @@
+description: 'Generated for THIS dataset by Final_universal_automl_pipeline fixed-161
+  (column names only, no values). Not read automatically: rename it to domain_config.yaml
+  to reuse it; the `dataset:` block makes a run on a different dataset ignore it.
+  Findings: domain_config_report.json.'
+dataset:
+  n_columns: 11
+  columns_sha256: 93962b17713cd90a6b3a1491598ab0a83ea25719596cbdea923da8776924bdab
+  columns:
+  - age
+  - class
+  - insu
+  - insu__log1p
+  - mass
+  - pedi
+  - pedi__log1p
+  - plas
+  - preg
+  - pres
+  - skin
+domain:
+  industry: health_insurance
+  auto_drop_sensitive: true
+  keep_sensitive_columns: []
+  extra_sensitive_columns:
+  - age

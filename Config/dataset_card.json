@@ -1,0 +1,50 @@
+{
+  "name": "Diabetes Dataset",
+  "industry": "health_insurance",
+  "industry_source": "explicit (--industry / config)",
+  "model_type": "TABULAR_ML",
+  "task": "classification",
+  "source_url": "https://www.google.com/url?sa=i&source=web&rct=j&url=https://www.openml.org/d/37&ved=2ahUKEwjT3tGzjpmYAxVXS2cHHYZtJPUQy_kOegYIAggKEAI&opi=89978449&cd&psig=AOvVaw32WOT1f-QlHQ3cnLjmZefZ&ust=1795352236466000",
+  "license": "CC BY 4.0 / Public Domain. Originally collected by the National Institute of Diabetes and Digestive and Kidney Diseases and hosted on OpenML, this dataset is openly available under CC BY 4.0 / Public Domain terms for academic, educational, and research purposes.",
+  "collection_method": "Yes (Supervised Binary Classification). The dataset is fully labelled with the target column class, which indicates whether a patient tested positive (tested_positive / 1) or negative (tested_negative / 0) for diabetes.",
+  "known_limitations": "\u2022 Disguised Missing Values (0 Entries): Several physiological measurements\u2014such as plas (Glucose), pres (Blood Pressure), skin (Skinfold Thickness), insu (Insulin), and mass (BMI)\u2014contain biologically impossible 0 values (e.g., ~48% of insu and ~30% of skin rows are 0), which represent unrecorded missing data rather than actual measurements. \u2022 Demographic & Population Bias: The dataset includes only female patients at least 21 years old of Pima Indian heritage, meaning models trained on this data do not generalize well to males, younger individuals, or other ethnic populations. \u2022 Small Sample Size: With only 768 instances and 8 predictor features, deep or overly complex models can easily overfit without proper cross-validation.",
+  "complete": true,
+  "missing_fields": [],
+  "defaulted_fields": [],
+  "field_sources": {
+    "source_url": "cli",
+    "license": "cli",
+    "collection_method": "cli",
+    "known_limitations": "cli"
+  },
+  "needs_owner_confirmation": false,
+  "metadata_file": null,
+  "n_rows_used": 768,
+  "n_test_rows": 154,
+  "class_distribution": {
+    "tested_negative": 500,
+    "tested_positive": 268
+  },
+  "dropped_columns": {
+    "age": "protected attribute dropped by DROP_SENSITIVE_FEATURES"
+  },
+  "audit_findings": [
+    "the test split has only 154 rows: accuracy 0.734 has a 95% interval of [0.659, 0.797] -- treat differences inside it as noise (more data, or repeated / cross-validated evaluation, before comparing models).",
+    "protected attribute column(s) ['age'] were dropped before training (DROP_SENSITIVE_FEATURES) -- no fairness audit was run for them."
+  ],
+  "sensitive_features": [],
+  "sensitive_reviewed": {},
+  "sensitive_scan": {},
+  "sensitive_review_source": {},
+  "business_justified": {},
+  "sensitive_features_dropped": [
+    "age"
+  ],
+  "fairness_disparity": [],
+  "fairness_check_status": "NOT_APPLICABLE",
+  "fairness_review_pending": [],
+  "dropped_columns_category": {
+    "age": "protected_class"
+  },
+  "unspecified_fields": []
+}
